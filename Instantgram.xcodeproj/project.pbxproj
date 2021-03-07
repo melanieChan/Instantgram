@@ -15,6 +15,9 @@
 		6188F0BB25F4550900F82564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6188F0B925F4550900F82564 /* LaunchScreen.storyboard */; };
 		6188F0C625F4550900F82564 /* InstantgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6188F0C525F4550900F82564 /* InstantgramTests.swift */; };
 		6188F0D125F4550900F82564 /* InstantgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6188F0D025F4550900F82564 /* InstantgramUITests.swift */; };
+		7329B57A395397CB74A48F7B /* Pods_Instantgram_InstantgramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A76D5FD15EF9377193E68 /* Pods_Instantgram_InstantgramUITests.framework */; };
+		8E5FED6F5172016708686F77 /* Pods_InstantgramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDDDB89EE9EAF5F2E82ED6B /* Pods_InstantgramTests.framework */; };
+		CB0F2CFE6F2D6A0F9B11D1AB /* Pods_Instantgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8503D86172BBC5F549C42966 /* Pods_Instantgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1248305A389CE019AD9EF502 /* Pods-Instantgram-InstantgramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instantgram-InstantgramUITests.release.xcconfig"; path = "Target Support Files/Pods-Instantgram-InstantgramUITests/Pods-Instantgram-InstantgramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		543EBF7EB062CF22BBD68A44 /* Pods-Instantgram-InstantgramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instantgram-InstantgramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Instantgram-InstantgramUITests/Pods-Instantgram-InstantgramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6188F0AB25F4550600F82564 /* Instantgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instantgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6188F0AE25F4550600F82564 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6188F0B025F4550600F82564 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		6188F0CC25F4550900F82564 /* InstantgramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstantgramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6188F0D025F4550900F82564 /* InstantgramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantgramUITests.swift; sourceTree = "<group>"; };
 		6188F0D225F4550900F82564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DDDDB89EE9EAF5F2E82ED6B /* Pods_InstantgramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstantgramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8503D86172BBC5F549C42966 /* Pods_Instantgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instantgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B74457AE3406E601CD2B0C25 /* Pods-InstantgramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstantgramTests.debug.xcconfig"; path = "Target Support Files/Pods-InstantgramTests/Pods-InstantgramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B77A76D5FD15EF9377193E68 /* Pods_Instantgram_InstantgramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instantgram_InstantgramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C35518CEB017561C8AE24929 /* Pods-Instantgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instantgram.debug.xcconfig"; path = "Target Support Files/Pods-Instantgram/Pods-Instantgram.debug.xcconfig"; sourceTree = "<group>"; };
+		DA2D62A820F5F58CCE01B93E /* Pods-Instantgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instantgram.release.xcconfig"; path = "Target Support Files/Pods-Instantgram/Pods-Instantgram.release.xcconfig"; sourceTree = "<group>"; };
+		DEA9FC8BEE95CC9AD1688634 /* Pods-InstantgramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstantgramTests.release.xcconfig"; path = "Target Support Files/Pods-InstantgramTests/Pods-InstantgramTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB0F2CFE6F2D6A0F9B11D1AB /* Pods_Instantgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5FED6F5172016708686F77 /* Pods_InstantgramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7329B57A395397CB74A48F7B /* Pods_Instantgram_InstantgramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				6188F0C425F4550900F82564 /* InstantgramTests */,
 				6188F0CF25F4550900F82564 /* InstantgramUITests */,
 				6188F0AC25F4550600F82564 /* Products */,
+				825F793751868D6C86C0E10A /* Pods */,
+				68C88338154502950E3C16A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,30 @@
 			path = InstantgramUITests;
 			sourceTree = "<group>";
 		};
+		68C88338154502950E3C16A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8503D86172BBC5F549C42966 /* Pods_Instantgram.framework */,
+				B77A76D5FD15EF9377193E68 /* Pods_Instantgram_InstantgramUITests.framework */,
+				6DDDDB89EE9EAF5F2E82ED6B /* Pods_InstantgramTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		825F793751868D6C86C0E10A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C35518CEB017561C8AE24929 /* Pods-Instantgram.debug.xcconfig */,
+				DA2D62A820F5F58CCE01B93E /* Pods-Instantgram.release.xcconfig */,
+				543EBF7EB062CF22BBD68A44 /* Pods-Instantgram-InstantgramUITests.debug.xcconfig */,
+				1248305A389CE019AD9EF502 /* Pods-Instantgram-InstantgramUITests.release.xcconfig */,
+				B74457AE3406E601CD2B0C25 /* Pods-InstantgramTests.debug.xcconfig */,
+				DEA9FC8BEE95CC9AD1688634 /* Pods-InstantgramTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6188F0D525F4550900F82564 /* Build configuration list for PBXNativeTarget "Instantgram" */;
 			buildPhases = (
+				407F76DD7DE3E918B68CF896 /* [CP] Check Pods Manifest.lock */,
 				6188F0A725F4550600F82564 /* Sources */,
 				6188F0A825F4550600F82564 /* Frameworks */,
 				6188F0A925F4550600F82564 /* Resources */,
+				8323BFC9E6C2CB8563732488 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6188F0D825F4550900F82564 /* Build configuration list for PBXNativeTarget "InstantgramTests" */;
 			buildPhases = (
+				B81D4D0F53BF706DA19E6E84 /* [CP] Check Pods Manifest.lock */,
 				6188F0BD25F4550900F82564 /* Sources */,
 				6188F0BE25F4550900F82564 /* Frameworks */,
 				6188F0BF25F4550900F82564 /* Resources */,
@@ -170,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6188F0DB25F4550900F82564 /* Build configuration list for PBXNativeTarget "InstantgramUITests" */;
 			buildPhases = (
+				9EEDA89FAFC893E4A053F05F /* [CP] Check Pods Manifest.lock */,
 				6188F0C825F4550900F82564 /* Sources */,
 				6188F0C925F4550900F82564 /* Frameworks */,
 				6188F0CA25F4550900F82564 /* Resources */,
+				B15965234A2444A6A5BFD2FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		407F76DD7DE3E918B68CF896 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Instantgram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8323BFC9E6C2CB8563732488 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instantgram/Pods-Instantgram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instantgram/Pods-Instantgram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Instantgram/Pods-Instantgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EEDA89FAFC893E4A053F05F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Instantgram-InstantgramUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B15965234A2444A6A5BFD2FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instantgram-InstantgramUITests/Pods-Instantgram-InstantgramUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Instantgram-InstantgramUITests/Pods-Instantgram-InstantgramUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Instantgram-InstantgramUITests/Pods-Instantgram-InstantgramUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B81D4D0F53BF706DA19E6E84 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstantgramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6188F0A725F4550600F82564 /* Sources */ = {
@@ -433,6 +582,7 @@
 		};
 		6188F0D625F4550900F82564 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C35518CEB017561C8AE24929 /* Pods-Instantgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +601,7 @@
 		};
 		6188F0D725F4550900F82564 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2D62A820F5F58CCE01B93E /* Pods-Instantgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +620,7 @@
 		};
 		6188F0D925F4550900F82564 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B74457AE3406E601CD2B0C25 /* Pods-InstantgramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +642,7 @@
 		};
 		6188F0DA25F4550900F82564 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEA9FC8BEE95CC9AD1688634 /* Pods-InstantgramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +664,7 @@
 		};
 		6188F0DC25F4550900F82564 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 543EBF7EB062CF22BBD68A44 /* Pods-Instantgram-InstantgramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +684,7 @@
 		};
 		6188F0DD25F4550900F82564 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1248305A389CE019AD9EF502 /* Pods-Instantgram-InstantgramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
