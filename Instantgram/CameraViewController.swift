@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentField: UITextField!
@@ -21,8 +22,39 @@ class CameraViewController: UIViewController {
     @IBAction func onPost(_ sender: Any) {
     }
     
-    // when user taps on image
+    // when user taps on image, allow user to pick image
     @IBAction func onImageTapped(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        // open up camera
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.sourceType = .camera
+        }
+        
+        // use photo library
+        else {
+            picker.sourceType = .photoLibrary
+        }
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    // get image that user chose from library
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // get image from info dictionary
+        let image = info[.editedImage] as! UIImage
+        
+        // resize image
+        let size = CGSize(width: 300, height: 300)
+        let scaled_image = image.af_imageScaled(to: size)
+        
+        // set view
+        imageView.image = scaled_image
+        
+        // dismiss camera view
+        dismiss(animated: true, completion: nil)
     }
     
     /*
