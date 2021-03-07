@@ -88,25 +88,79 @@
         <!--Feed View Controller-->
         <scene sceneID="WAE-if-F7j">
             <objects>
-                <viewController id="9Rc-wc-fjn" customClass="FeedViewController" customModule="Instantgram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="9Rc-wc-fjn" customClass="FeedViewController" customModule="Instantgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uC6-Fb-Dbn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="v4h-bu-y95"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7rL-Gb-sAO"/>
+                    <navigationItem key="navigationItem" id="7rL-Gb-sAO">
+                        <barButtonItem key="rightBarButtonItem" title="new picture" image="insta_camera_btn" id="yHg-eC-qR9">
+                            <connections>
+                                <segue destination="nZW-DE-jvw" kind="presentation" id="I8w-A5-NT0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cny-97-C7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1483" y="58"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="ObV-vD-HNN">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="nZW-DE-jvw" customClass="CameraViewController" customModule="Instantgram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SXU-8h-ETE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder-1" translatesAutoresizingMaskIntoConstraints="NO" id="LSk-xp-Wtf">
+                                <rect key="frame" x="46" y="106" width="323" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Emb-Cg-Bvd" appends="YES" id="iHn-2F-LPs"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bod-Gr-xyZ">
+                                <rect key="frame" x="46" y="403" width="323" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxs-8Q-gvc">
+                                <rect key="frame" x="54" y="433" width="315" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="post"/>
+                                <connections>
+                                    <action selector="onPost:" destination="nZW-DE-jvw" eventType="touchUpInside" id="6qG-4u-FCb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M4C-eC-HsY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentField" destination="bod-Gr-xyZ" id="2CY-aQ-W2Q"/>
+                        <outlet property="imageView" destination="LSk-xp-Wtf" id="bsZ-zA-1v6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMS-5t-apy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Emb-Cg-Bvd">
+                    <connections>
+                        <action selector="onImageTapped:" destination="nZW-DE-jvw" id="wwv-2n-zAb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2223.1884057971015" y="68.973214285714278"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="pNg-02-AUZ">
             <objects>
-                <navigationController id="Oul-cy-2TA" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="Oul-cy-2TA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7NR-9a-PMU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -119,6 +173,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="image_placeholder-1" width="375" height="375"/>
+        <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram_logo" width="255" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
