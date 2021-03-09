@@ -13,6 +13,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+    let postsRefreshControl = UIRefreshControl()
+    
     var posts = [PFObject]() // array of data retrieved from database
     
     override func viewDidLoad() {
@@ -20,6 +22,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        postsRefreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.refreshControl = postsRefreshControl
+
+    }
+    
+    @objc func onRefresh() {
+        run(after: 2) {
+           self.postsRefreshControl.endRefreshing()
+        }
+    }
+    
+    // delay
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
     }
     
     // to show recently created post after posting and returning to feed screen
