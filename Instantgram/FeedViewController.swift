@@ -17,6 +17,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var posts = [PFObject]() // array of data retrieved from database
     
+    var numberOfPosts = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,7 +49,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // get recently created post from database and display it
         let query = PFQuery(className: "Posts")
         query.includeKey("author") // get data of author
-        query.limit = 20
+        query.limit = numberOfPosts
         
         query.findObjectsInBackground { (postsRetrieved, error) in
             if postsRetrieved != nil {
@@ -83,6 +85,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    // for infinite scroll
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == posts.count {
+            numberOfPosts = numberOfPosts + 2
+            self.viewDidAppear(true)
+        }
+    }
+
 
     /*
     // MARK: - Navigation

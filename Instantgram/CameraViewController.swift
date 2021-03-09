@@ -21,6 +21,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // when user clicks post button
     @IBAction func onPost(_ sender: Any) {
+        // automating posts
+//        for index in 7...19 {
+//            post["caption"] = "\(index)"
+        
         let post = PFObject(className: "Posts")
         
         // fill in post info
