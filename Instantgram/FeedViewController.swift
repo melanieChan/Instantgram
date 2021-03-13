@@ -17,7 +17,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var posts = [PFObject]() // array of data retrieved from database
     
-    var numberOfPosts = 2
+    var numberOfPosts = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
+        // reverse chronological order display of posts
+//        let indexOfLastItem = posts.count - 1
+//        let post = posts[indexOfLastItem - indexPath.row]
+
+        // chronological order
         let post = posts[indexPath.row]
+        
         let user = post["author"] as! PFUser
         
         // set data
@@ -89,7 +95,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     // for infinite scroll
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == posts.count {
-            numberOfPosts = numberOfPosts + 2
+            numberOfPosts = numberOfPosts + 20
             self.viewDidAppear(true)
         }
     }
