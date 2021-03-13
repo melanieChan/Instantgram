@@ -214,7 +214,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pNg-02-AUZ">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="Oul-cy-2TA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationViewController" modalPresentationStyle="fullScreen" id="Oul-cy-2TA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7NR-9a-PMU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
