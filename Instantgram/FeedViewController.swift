@@ -99,7 +99,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.viewDidAppear(true)
         }
     }
-
+    
+    // when user logs out
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        
+        // switch screens
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
+        
+        // set window
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+        
+        delegate.window?.rootViewController = loginViewController
+    }
+    
 
     /*
     // MARK: - Navigation
