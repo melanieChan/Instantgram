@@ -104,7 +104,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // chronological order
         let post = posts[indexPath.section] // get post
         let comments = (post["Comments"] as? [PFObject]) ?? [] // get comments for post
-        print(comments)
+//        print(comments)
         
         // creating post cell
         if indexPath.row == 0 { // post cell is first cell in section
@@ -176,23 +176,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // add comment when cell is clicked
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
         
-        let comment = PFObject(className: "Comments")
+        let comments = (post["Comments"] as? [PFObject]) ?? []
         
-        comment["text"] = "comment text"
-        comment["post"] = post
-        comment["author"] = PFUser.current()
-        
-        // make array of comments for each post & add current comment to array
-        post.add(comment, forKey: "Comments")
-        
-        post.saveInBackground { (success, error) in
-            if success {
-                print("comment saved")
-            } else {
-                print("error saving comment")
-            }
+        // when user clicks on add new comment cell, comment bar shows up
+        // if at last cell (add new comment cell is after previous comment cells)
+        if indexPath.row == comments.count + 1 {
+            showCommentBar = true
+
+            becomeFirstResponder()
+            commentBar.inputTextView.becomeFirstResponder()
         }
     }
     
