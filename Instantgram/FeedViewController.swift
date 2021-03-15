@@ -27,6 +27,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         postsRefreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.refreshControl = postsRefreshControl
+        
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableView.automaticDimension
+
 
     }
     
@@ -48,7 +52,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // get recently created post from database and display it
         let query = PFQuery(className: "Posts")
-        query.includeKey("author") // get data of author
+        query.includeKeys(["author", "Comments", "Comments.author"]) // get data of author
         query.limit = numberOfPosts
         
         query.findObjectsInBackground { (postsRetrieved, error) in
@@ -60,36 +64,78 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // how many rows in table view
+    // how many rows per section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 1 post + number of comments that post has
+        let post = posts[section]
+        let comments = (post["Comments"] as? [PFObject]) ?? []
+        
+        return 1 + comments.count
+    }
+    
+    // each post gets its own section, section will contain post and comments for that post
+    func numberOfSections(in tableView: UITableView) -> Int {
         return posts.count
+    }
+    
+    // determine row height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // if post
+        if indexPath.row == 0 {
+            return 500
+        }
+        
+        // if comment
+        return UITableView.automaticDimension
     }
     
     // make a row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
         // reverse chronological order display of posts
 //        let indexOfLastItem = posts.count - 1
 //        let post = posts[indexOfLastItem - indexPath.row]
 
         // chronological order
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section] // get post
+        let comments = (post["Comments"] as? [PFObject]) ?? [] // get comments for post
+        print(comments)
         
-        let user = post["author"] as! PFUser
+        // creating post cell
+        if indexPath.row == 0 { // post cell is first cell in section
+//            tableView.rowHeight = 500
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+
+            let user = post["author"] as! PFUser
+            
+            // set data
+            cell.usernameLabel.text = user.username
+            cell.commentLabel.text = post["caption"] as! String
+            
+            // set image
+            let imageFile = post["image"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            
+            cell.photoView.af_setImage(withURL: url)
+            
+            return cell
+        }
         
-        // set data
-        cell.usernameLabel.text = user.username
-        cell.commentLabel.text = post["caption"] as! String
-        
-        // set image
-        let imageFile = post["image"] as! PFFileObject
-        let urlString = imageFile.url!
-        let url = URL(string: urlString)!
-        
-        cell.photoView.af_setImage(withURL: url)
-        
-        return cell
+        // create comment cells
+        else {
+            let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
+            
+            let comment = comments[indexPath.row - 1]
+            
+            commentCell.commentLabel.text = comment["text"] as? String
+            
+            let author = comment["author"] as! PFUser
+            commentCell.nameLabel.text = author.username
+
+            return commentCell
+        }
     }
     
     // for infinite scroll
