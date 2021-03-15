@@ -117,6 +117,28 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         delegate.window?.rootViewController = loginViewController
     }
     
+    // add comment when cell is clicked
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        
+        let comment = PFObject(className: "Comments")
+        
+        comment["text"] = "comment text"
+        comment["post"] = post
+        comment["author"] = PFUser.current()
+        
+        // make array of comments for each post & add current comment to array
+        post.add(comment, forKey: "Comments")
+        
+        post.saveInBackground { (success, error) in
+            if success {
+                print("comment saved")
+            } else {
+                print("error saving comment")
+            }
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
