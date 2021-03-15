@@ -8,6 +8,7 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,6 +19,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var posts = [PFObject]() // array of data retrieved from database
     
     var numberOfPosts = 20
+    
+    let commentBar = MessageInputBar()
+    var showCommentBar = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +35,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
 
-
+        // dismiss keyboard
+        tableView.keyboardDismissMode = .interactive
     }
     
     @objc func onRefresh() {
@@ -70,7 +75,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = posts[section]
         let comments = (post["Comments"] as? [PFObject]) ?? []
         
-        return 1 + comments.count
+        return 2 + comments.count
     }
     
     // each post gets its own section, section will contain post and comments for that post
@@ -124,7 +129,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         // create comment cells
-        else {
+        else if indexPath.row <= comments.count{
             let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
             
             let comment = comments[indexPath.row - 1]
@@ -135,6 +140,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             commentCell.nameLabel.text = author.username
 
             return commentCell
+        }
+        
+        // add comment cell
+        else {
+            let addCommentCell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell")!
+            return addCommentCell
         }
     }
     
@@ -186,6 +197,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
+    // comments
+    override var inputAccessoryView: UIView? {
+        return commentBar
+    }
+    override var canBecomeFirstResponder: Bool {
+        return showCommentBar
+    }
+    
     /*
     // MARK: - Navigation
 

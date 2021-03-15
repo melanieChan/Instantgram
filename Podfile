@@ -8,6 +8,7 @@ target 'Instantgram' do
   # Pods for Instantgram
   pod 'Parse'
   pod 'AlamofireImage'
+  pod 'MessageInputBar'
 
   target 'InstantgramTests' do
     inherit! :search_paths
