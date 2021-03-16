@@ -23,6 +23,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     let commentBar = MessageInputBar()
     var showCommentBar = false
     
+    var selectedPost: PFObject! // to remember current post when matching comments to corresponding post
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +50,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // hide comment bar after clicking out of comment mode & keyboard
     @objc func keyboardWillBeHidden(note: Notification) {
-        print("hide comment bar")
 
         commentBar.inputTextView.text = nil // clear out input field
         
@@ -204,6 +205,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             becomeFirstResponder()
             commentBar.inputTextView.becomeFirstResponder()
+            
+            selectedPost = post
         }
     }
     
@@ -217,8 +220,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // when user clicks send after typing comment on comment bar
-    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith commentInputText: String) {
         // create and record comment
+        let comment = PFObject(className: "Comments")
+        comment["text"] = commentInputText
+        comment["post"] = selectedPost
+        comment["author"] = PFUser.current()
+        
+        selectedPost.add(comment, forKey: "Comments")
+        
+        selectedPost.saveInBackground { (success, error) in
+            if success {
+                print("comment created")
+            } else {
+                print("error creating comment")
+            }
+        }
+        
+        tableView.reloadData()
         
         // collapse comment bar
         commentBar.inputTextView.text = nil // clear out input field
