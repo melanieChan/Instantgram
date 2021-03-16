@@ -10,7 +10,7 @@ import Parse
 import AlamofireImage
 import MessageInputBar
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -35,8 +35,25 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
 
+        commentBar.inputTextView.placeholder = "Add a comment . . ."
+        commentBar.sendButton.title = "Post"
+        commentBar.delegate = self
+        
         // dismiss keyboard
         tableView.keyboardDismissMode = .interactive
+        
+        // when hiding keyboard & comment bar
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    // hide comment bar after clicking out of comment mode & keyboard
+    @objc func keyboardWillBeHidden(note: Notification) {
+        print("hide comment bar")
+
+        commentBar.inputTextView.text = nil // clear out input field
+        
+        showCommentBar = false
+        becomeFirstResponder()
     }
     
     @objc func onRefresh() {
@@ -197,6 +214,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override var canBecomeFirstResponder: Bool {
         return showCommentBar
+    }
+    
+    // when user clicks send after typing comment on comment bar
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        // create and record comment
+        
+        // collapse comment bar
+        commentBar.inputTextView.text = nil // clear out input field
+        
+        showCommentBar = false
+        becomeFirstResponder()
+        commentBar.inputTextView.resignFirstResponder()
     }
     
     /*
